@@ -7,7 +7,7 @@ This is a simple [Occupational Health Service](https://en.wikipedia.org/wiki/Occ
 - [Livewire](https://laravel-livewire.com/) - a full-stack framework for Laravel that takes the pain out of building dynamic UIs.
 - [AlpineJS](https://alpinejs.dev/) - a new, lightweight, JavaScript framework.
 - [Tailwind CSS](https://tailwindcss.com/) - a utility-first CSS framework that gives you the tools and the standardization to build exactly what you want.
-- 
+
 ### Installation instructions
 
 ```
