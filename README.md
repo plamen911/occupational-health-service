@@ -10,15 +10,33 @@ This is a simple [Occupational Health Service](https://en.wikipedia.org/wiki/Occ
 
 ### Installation instructions
 
+Open your terminal and run these commands:
+
 ```
 git clone git@github.com:plamen911/occupational-health-service.git
 cd occupational-health-service/
 composer install
 cp .env.example .env
 php artisan key:generate
-php artisan serve --port=3000
 ```
 
-Open your browser and go to: [http://localhost:3000/](http://localhost:3000/)
+Edit your `.env` file by placing the absolute path to the database in the `DB_DATABASE` environment variable:
 
-Press Control + C keys to stop the server.
+```
+DB_DATABASE=/absolute/path/to/database.sqlite
+```
+
+```
+php artisan serve
+```
+
+Open your browser and go to: [http://localhost:8000/](http://localhost:8000/)
+
+App credentials:
+
+```
+Username: admin
+Password: 1
+```
+
+Press `Control` + `C` to stop the server.
