@@ -24,6 +24,14 @@ class LaboratoryResearch extends Component
 
     public array $laboratoryIndicatorDropdown = [];
 
+    protected $rules = [
+        'item.laboratory_researches.*.laboratory_indicator_id' => 'required|exists:laboratory_indicators,id',
+    ];
+
+    protected $validationAttributes = [
+        'item.laboratory_researches.*.laboratory_indicator_id' => 'Показател',
+    ];
+
     protected $listeners = ['deleteLaboratoryResearch'];
 
     public function mount(int $firmId, int $workerId, int $prophylacticCheckupId): void
@@ -44,6 +52,8 @@ class LaboratoryResearch extends Component
 
     public function save(): void
     {
+        $this->validate();
+
         DB::transaction(function () {
             DB::table('laboratory_researches')
                 ->where('prophylactic_checkup_id', $this->prophylacticCheckupId)

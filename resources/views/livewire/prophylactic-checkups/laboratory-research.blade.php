@@ -91,7 +91,7 @@
                                     </div>
                                 </x-app.table-column>
                                 <x-app.table-column>
-                                    <div class="mt-2 whitespace-nowrap">
+                                    <div class="mt-2 whitespace-nowrap text-right">
                                         <button type="button"
                                                 wire:click="confirmDelete({{ $i }})"
                                                 wire:loading.attr="disabled"
