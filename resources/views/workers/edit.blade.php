@@ -1,6 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        Работещи в {{ $firm->name }}
+        @if('form' === $tab)
+            Работещи в {{ $firm->name }}
+        @else
+            {{ $worker->full_name }}, ЕГН {{ $worker->id_number }}
+        @endif
+
     </x-slot>
 
     <x-firms.tabs :firm-id="$firm->id">

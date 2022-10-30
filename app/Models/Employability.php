@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 
 class Employability extends Model
 {
@@ -42,5 +43,15 @@ class Employability extends Model
     public function mkbCode(): BelongsTo
     {
         return $this->belongsTo(MkbCode::class);
+    }
+
+    public static function authorityDropdown(): Collection
+    {
+        return collect([
+            'ТЕЛК' => 'ТЕЛК',
+            'НЕЛК' => 'НЕЛК',
+            'ЛКК' => 'ЛКК',
+            'болничен лист' => 'болничен лист',
+        ]);
     }
 }
