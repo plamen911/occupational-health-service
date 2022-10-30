@@ -23,10 +23,14 @@ class WorkerController extends Controller
         return view('workers.create', compact('firm', 'worker'));
     }
 
-    public function edit(Firm $firm, Worker $worker): View
+    public function edit(Firm $firm, Worker $worker, ?string $tab = null): View
     {
         abort_if($firm->id !== $worker->firm_id, Response::HTTP_BAD_REQUEST);
 
-        return view('workers.edit', compact('firm', 'worker'));
+        if (empty($tab)) {
+            $tab = 'form';
+        }
+
+        return view('workers.edit', compact('firm', 'worker', 'tab'));
     }
 }

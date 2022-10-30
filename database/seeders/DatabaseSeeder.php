@@ -43,6 +43,8 @@ class DatabaseSeeder extends Seeder
             PatientChartReasonSeeder::class,
             PatientChartTypeSeeder::class,
             PatientChartSeeder::class,
+            ProfessionalExperienceSeeder::class,
+            EmployabilitySeeder::class,
 
         ]);
     }

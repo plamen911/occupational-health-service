@@ -34,7 +34,12 @@ Route::middleware('auth')->group(function () {
     Route::get('autocomplete/{action}', \App\Http\Controllers\AutocompleteController::class)->name('autocomplete');
 
     Route::resource('firms', \App\Http\Controllers\FirmController::class)->only(['index', 'create', 'edit']);
-    Route::resource('firms.workers', \App\Http\Controllers\WorkerController::class)->only(['index', 'create', 'edit']);
+
+    Route::group(['prefix' => 'firms/{firm}/workers', 'as' => 'firms.workers.'], function () {
+        Route::get('/', [\App\Http\Controllers\WorkerController::class, 'index'])->name('index');
+        Route::get('/{worker}/edit/{tab?}', [\App\Http\Controllers\WorkerController::class, 'edit'])->name('edit');
+        Route::get('/create', [\App\Http\Controllers\WorkerController::class, 'create'])->name('create');
+    });
 
     Route::group(['prefix' => 'firms/{firm}/workers/{worker}/prophylactic-checkups', 'as' => 'prophylactic-checkups.'], function () {
         Route::get('/', [\App\Http\Controllers\ProphylacticCheckupController::class, 'index'])->name('index');

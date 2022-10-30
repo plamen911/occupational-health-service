@@ -28,4 +28,9 @@ class MkbCode extends Model
     {
         return $this->hasMany(PatientChart::class);
     }
+
+    public function employabilities(): HasMany
+    {
+        return $this->hasMany(Employability::class);
+    }
 }

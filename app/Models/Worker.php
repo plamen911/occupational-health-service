@@ -83,6 +83,16 @@ class Worker extends Model
         return $this->hasMany(PatientChart::class);
     }
 
+    public function professionalExperiences(): HasMany
+    {
+        return $this->hasMany(ProfessionalExperience::class)->orderBy('position');
+    }
+
+    public function employabilities(): HasMany
+    {
+        return $this->hasMany(Employability::class)->orderBy('position');
+    }
+
     public function setBirthDateAttribute(?string $input): void
     {
         $birthDate = null;

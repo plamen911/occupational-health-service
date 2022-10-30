@@ -7,7 +7,11 @@
         <x-workes.tabs
                 :firm-id="$firm->id"
                 :worker-id="$worker->id"
+                :tab="$tab"
         />
-        <livewire:workers.form :firm-id="$firm->id" :worker-id="$worker->id"/>
+        @livewire('workers.' . $tab, [
+            'firmId' => $firm->id,
+            'workerId' => $worker->id
+        ])
     </x-firms.tabs>
 </x-app-layout>
