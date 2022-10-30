@@ -22,7 +22,7 @@ php artisan key:generate
 php artisan serve
 ```
 
-Open your browser and go to: [http://localhost:8000/](http://localhost:8000/)
+Open your browser and go to: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 App credentials:
 
